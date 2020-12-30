@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  group_id: 1
+  date: 2020-12-30
+  attendance_time_at: 2020-12-30 10:20:49
+  leave_time_at: 2020-12-30 10:20:49
+  note: MyText
+
+two:
+  user_id: 1
+  group_id: 1
+  date: 2020-12-30
+  attendance_time_at: 2020-12-30 10:20:49
+  leave_time_at: 2020-12-30 10:20:49
+  note: MyText
