@@ -19,3 +19,4 @@ services:
     depends_on:
       - db
     working_dir: "/app"
+    command: "rails s -b 0.0.0.0"
