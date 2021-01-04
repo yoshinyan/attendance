@@ -6,9 +6,19 @@ class AttendancesController < ApplicationController
   end
 
   def create
+    @attendance = Attendance.new
+    @attendance.user_id = 1
+    @attendance.date = Time.zone.now
+    @attendance.attendance_time_at = Time.zone.now
+    @attendance.save!
   end
 
   def edit
+    user_id = 1
+
+    @attendance = Attendance.find_by(user_id: user_id, date: params[:date])
+    @attendance.leave_time_at = Time.zone.now
+    @attendance.save!
   end
 
   def delete

@@ -1,2 +1,12 @@
-h1 Attendances#index
-p Find me in app/views/attendances/index.html.slim
+- time = Time.zone.now
+- user_id = 1
+
+p #{time.strftime("現在日時 %Y年 %m月 %d日 %H時 %M分")}です。
+
+- if Attendance.find_by(user_id: user_id, date: time).nil?
+  = form_with url: attendances_create_path, model: @attendance, locale: true do |f|
+    = f.submit '出勤'
+- else
+  = form_with url: attendances_edit_path, model: @attendance, locale: true do |f|
+    = f.hidden_field :date, :value => time
+    = f.submit '退勤'
