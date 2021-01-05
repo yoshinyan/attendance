@@ -11,6 +11,8 @@ class AttendancesController < ApplicationController
     @attendance.date = Time.zone.now
     @attendance.attendance_time_at = Time.zone.now
     @attendance.save!
+
+    redirect_to attendances_index_path
   end
 
   def edit
