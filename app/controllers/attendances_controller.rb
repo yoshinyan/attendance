@@ -21,6 +21,8 @@ class AttendancesController < ApplicationController
     @attendance = Attendance.find_by(user_id: user_id, date: params[:date])
     @attendance.leave_time_at = Time.zone.now
     @attendance.save!
+
+    redirect_to attendances_index_path
   end
 
   def delete
