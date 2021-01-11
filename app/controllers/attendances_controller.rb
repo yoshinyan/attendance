@@ -5,21 +5,21 @@ class AttendancesController < ApplicationController
   def show
   end
 
-  def create
+  def start_time
     @attendance = Attendance.new
     @attendance.user_id = 1
     @attendance.date = Time.zone.now
-    @attendance.attendance_time_at = Time.zone.now
+    @attendance.start_time_at = Time.zone.now
     @attendance.save!
 
     redirect_to attendances_index_path
   end
 
-  def edit
+  def end_time
     user_id = 1
 
     @attendance = Attendance.find_by(user_id: user_id, date: params[:date])
-    @attendance.leave_time_at = Time.zone.now
+    @attendance.end_time_at = Time.zone.now
     @attendance.save!
 
     redirect_to attendances_index_path
