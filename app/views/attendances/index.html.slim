@@ -16,8 +16,9 @@ p #{time.strftime("現在日時 %Y年 %m月 %d日 %H時 %M分")}以降です。
       = f.hidden_field :date, :value => time
       = f.submit '退勤'
 
-- attendances = Attendance.where(user_id: user_id)
+br
 
+- attendances = Attendance.where(user_id: user_id)
 - attendances.each_with_index do |attendance, index|
   table.table-layout
     tbody
@@ -26,7 +27,11 @@ p #{time.strftime("現在日時 %Y年 %m月 %d日 %H時 %M分")}以降です。
           td.border.text-center 日付
           td.border.text-center 出勤時刻
           td.border.text-center 退勤時刻
+          td.border.text-center note
+          td.border.text-center 編集
       tr
         td.border.text-center = attendance.date.strftime("%m月 %d日")
         td.border.text-center = attendance.attendance_time_at.strftime("%H時 %M分")
         td.border.text-center = attendance.leave_time_at.present? ? attendance.leave_time_at.strftime("%H時 %M分") : ""
+        td.border.text-center = attendance.note
+        td.border.text-center 編集ボタン
