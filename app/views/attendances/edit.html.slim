@@ -1,2 +1,13 @@
-h1 Attendances#edit
-p Find me in app/views/attendances/edit.html.slim
+p #{@attendance.date.year}年#{@attendance.date.month}月#{@attendance.date.day}日を編集
+= link_to "一覧", attendances_index_path
+
+= form_with url: attendances_update_path, model: @attendance, locale: true do |f|
+  = f.label "出勤時刻"
+  = f.time_select :start_time_at
+  = f.label "退勤時刻"
+  = f.time_select :end_time_at
+  = f.label "note"
+  = f.text_field :note
+  = f.hidden_field :date, :value => @attendance.date
+  = f.submit '送信'
+

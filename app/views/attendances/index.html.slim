@@ -35,6 +35,4 @@ br
         td.border.text-center = attendance.end_time_at.present? ? attendance.end_time_at.strftime("%H時 %M分") : ""
         td.border.text-center = attendance.note
         td.border.text-center
-          = form_with url: attendances_edit_path, model: @attendance, locale: true do |f|
-            = f.hidden_field :date, :value => attendance.date
-            = f.submit '編集'
+          = link_to "編集", attendances_edit_path(date: attendance.date)
