@@ -31,4 +31,3 @@ mysql-data
 vendor
 tmp/
 log/
-config/database.yml
