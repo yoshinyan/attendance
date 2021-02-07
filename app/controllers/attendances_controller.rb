@@ -1,5 +1,8 @@
 class AttendancesController < ApplicationController
   def index
+    user_id = 1
+    @attendances = Attendance.where(user_id: user_id)
+
   end
 
   def show

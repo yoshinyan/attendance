@@ -18,8 +18,7 @@ p #{time.strftime("現在日時 %Y年 %m月 %d日 %H時 %M分")}以降です。
 
 br
 
-- attendances = Attendance.where(user_id: user_id)
-- attendances.each_with_index do |attendance, index|
+- @attendances.each_with_index do |attendance, index|
   table.table-layout
     tbody
       - if index == 0
